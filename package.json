@@ -1,0 +1,46 @@
+{
+  "name": "browserify-vue-starter-project",
+  "version": "1.0.0",
+  "description": "Small setup that enables the use of Browserify with Vue",
+  "main": "index.html",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production  node ./bin/build/bundle-prod",
+    "build-dev": "cross-env NODE_ENV=development node ./bin/build/bundle-dev",
+    "watch-dev": "cross-env NODE_ENV=development node ./bin/build/watch-dev",
+    "serve": "live-server --host=0.0.0.0 --port=8080 --no-browser --wait=500 --watch=index.html,bundle/**",
+    "dev": "npm-run-all --parallel watch-dev serve"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify"
+      ],
+      [
+        "vueify"
+      ]
+    ]
+  },
+  "author": "Ingmar Delsink",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.53",
+    "@babel/preset-env": "^7.0.0-beta.53",
+    "babel-core": "^6.26.3",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
+    "browserify": "^16.2.2",
+    "cross-env": "^5.2.0",
+    "live-server": "^1.2.0",
+    "minify-stream": "^1.2.0",
+    "npm-run-all": "^4.1.3",
+    "uglifyify": "^5.0.1",
+    "vueify": "^9.4.1",
+    "watchify": "^3.11.0"
+  },
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
+  }
+}
